@@ -1,10 +1,21 @@
 package main
 
+// This file compiles fine using go1.18beta1 with errors being reported
+// by goland
+
 import (
 	"log"
 	v8 "rogchap.com/v8go"
 )
 
+// Goland is okay with this.
+func PrintSlice[t any](s []t) {
+	for _, v := range s {
+		println(v)
+	}
+}
+
+// flagged by Goland as invalid function with error "Missing Function Body"
 func SumWithGenerics[K comparable, V int64 | float64](m map[K]V) V {
 	var s V
 	for _, v := range m {
@@ -36,4 +47,7 @@ func main() {
 	n["s"] = 100
 	n["t"] = 200
 	println(SumWithGenerics(n))
+
+	PrintSlice([]int64{1, 2, 3, 4})
+	PrintSlice([]string{"a", "s", "d", "f"})
 }
