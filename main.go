@@ -1,7 +1,7 @@
 package main
 
-// This file compiles fine using go1.18beta1 with errors being reported
-// by goland
+// This file compiles fine using go1.18beta1. There are errors however when using Jetbrain's
+// Goland IDE on this. Goland IDE version as of time of testing is Build #GO-213.5744.269, built on December 1, 2021
 
 import (
 	"log"
